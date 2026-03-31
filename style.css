@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* Deceptive YouTube Error Overlay */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Screenshot 2026-04-01 031006.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 100;
+    cursor: default;
+}
+
+#video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    display: none; /* Hidden until triggered */
+    background: #000;
+}
+
+#rickroll-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Full screen video */
+    pointer-events: none; /* Block clicks on the video itself */
+}
+
+/* Prank Mode: Hide Cursor and Show Video */
+.active-prank #overlay {
+    display: none;
+}
+
+.active-prank #video-container {
+    display: block;
+}
+
+/* Hard Cursor Lock & Hide */
+.active-prank, 
+.active-prank * {
+    cursor: none !important;
+    user-select: none !important;
+}
